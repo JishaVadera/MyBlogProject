@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Blogs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(
+          to bottom,
+          #867ef5,
+          #fad0c4
+        ); /* Colorful gradient background */
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #f5f1f4; /* Light background for the blog container */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #ff6f61; /* Soft red color for the heading */
+        margin-bottom: 30px;
+      }
+
+      .blog-post {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #fff; /* White background for each blog post */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-post h2 {
+        color: #333;
+        margin-top: 0;
+        font-size: 1.5em; /* Larger font size for blog post titles */
+      }
+
+      .blog-post p {
+        margin: 19px 0;
+        line-height: 1.6;
+        font-size: 1.1em; /* Slightly larger font for readability */
+      }
+
+      .blog-post small {
+        display: block;
+        color: #888;
+        font-size: 0.9em;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 30px;
+        padding: 10px;
+        background-color: #ff6f61; /* Soft red color for the link */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      a:hover {
+        background-color: #d9534f; /* Darker shade for link hover effect */
+      }
+
+      /* Logout button styling */
+      form {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      form button {
+        padding: 10px 20px;
+        background-color: #d9534f; /* Red color for the logout button */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+      }
+
+      form button:hover {
+        background-color: #c9302c; /* Darker shade for the logout button hover effect */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>All Blogs</h1>
+      <% blogs.forEach(blog => { %>
+      <div class="blog-post" style="margin-top: 0%;">
+        <div style="display: flex ; justify-content: space-between;">
+          <h2 style="margin-top: 0%;"><%= blog.title %></h2>
+        </div>
+        <div style="float: right;">
+          <small>Posted on <%= blog.date.toDateString() %></small>
+        </div>
+        <p><%= blog.content %></p>
+      </div>
+      <% }) %>
+      <a href="/add-blog">Add a New Blog</a>
+    </div>
+    <form action="/logout" method="GET">
+      <button type="submit">Logout</button>
+    </form>
+  </body>
+</html>
